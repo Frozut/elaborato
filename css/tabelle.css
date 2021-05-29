@@ -1,0 +1,18 @@
+.table4 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 5px;
+    background: #11101d;
+    color: white;
+    border: 16px solid #11101d;
+    border-radius: 20px;
+    }
+    .table4 th {
+    font-size: 18px;
+    padding: 10px;
+    }
+    .table4 td {
+    background: #284b63;
+    padding: 10px;
+    }

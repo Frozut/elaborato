@@ -1,0 +1,24 @@
+.container-fluid {
+    margin-top: -550px;
+    margin-left: -200px;
+}
+.Credit-card-number{
+    position: absolute;
+  top: -270px;
+  right: -250px;
+}
+.Expiration{
+    position: absolute;
+    top: -270px;
+    right: -700px;
+}
+.name{
+    position: absolute;
+    top: -75px;
+    right: -250px;
+}
+.cvv{
+    position: absolute;
+    top: -75px;
+    right: -700px;
+}
