@@ -63,7 +63,7 @@ include_once 'source/session.php';
                             <div class="cvv"><?php include_once 'source/Getcvv.php'  ?></div>
                         </div>
                         <p class="text">
-                            questa carta &#232; di propriet&#224; di BANCA DEI TEMUTI.<br> In caso di ritrovamento si prega di restituirla ad una delle filiali della banca. Consulta l'elenco su iltemuto.com<br> Servizio clienti: 3926571026
+                            questa carta &#232; di propriet&#224; di DAILYBANK.<br> In caso di ritrovamento si prega di restituirla ad una delle filiali della banca. Consulta l'elenco su iltemuto.com<br> Servizio clienti: 3926571026
                         </p>
 
                     </div>
@@ -76,11 +76,19 @@ include_once 'source/session.php';
 
             </div>
             <div class="tondeggia"><?php include_once 'source/GETdatipersonali.php' ?>
-                <input type="submit" class="btn btn-primary" style="background-color:#f1a566" id="cambia" name="password_change>" value="cambia password">
-                <form action="cambia_password.php" method="post">
-                    <div id="creare">
+                <div style="display: inline-block">
+                    <input type="submit" class="btn btn-primary" style="background-color:#f1a566" id="cambia" name="password_change" value="cambia password">
+                </div>
+                <div style="display: inline-block; margin-left:35%">
+                    <input type="submit" style="background-color:#f1a566" id="prova" value="cancella_account" class="btn btn-primary" style="width:30%;">
+                </div>
 
+                <form action="cambia_password.php" method="post">
+                    <div id="creare" style="flex:right">
                     </div>
+                </form>
+                
+                <form method="post" name="elimina">
                 </form>
             </div>
 
@@ -89,13 +97,15 @@ include_once 'source/session.php';
 
     <script>
         var a = document.getElementById("cambia");
+        var cancellare = document.getElementById("prova");
+
         function cambia() {
             var div = document.createElement('div');
             var div1 = document.createElement('div');
             var div2 = document.createElement('div');
             div.id = 'old_password';
             div1.id = 'new_password';
-            div2.id='invia';
+            div2.id = 'invia';
             div.innerHTML += '<label>old_password</label><input type="passswrod" name="old_password" class="form-control" style="width:30%;" required autocomplete="off">'
             div1.innerHTML += '<label>new_password</label><input type="password" name="new_password" class="form-control" style="width:30%;" required autocomplete="off"><br>'
             div2.innerHTML += '<input type="submit" name="submit" style="background-color:#f1a566" class="btn btn-primary" style="width:30%;" required><br>'
@@ -104,7 +114,19 @@ include_once 'source/session.php';
             document.getElementById("creare").appendChild(div2);
             a.remove();
         }
+
+        function cancella() {
+            var c = confirm("vuoi seriamente cancellare l'account?");
+            if (c == true) {
+                document.elimina.action = "elimina_account.php";
+                document.elimina.submit();
+            } else {
+                alert("account non eliminato");
+            }
+        }
+
         a.onclick = cambia;
+        cancellare.onclick = cancella;
     </script>
 </body>
 

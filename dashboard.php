@@ -120,7 +120,7 @@ include_once 'source/db_connect.php';
                 <h4>spese mensili</h4>
                 <?php
                 try {
-                    $monthdata =date("Y-m-d", strtotime("-1 month"));
+                    $monthdata = date("Y-m-d", strtotime("-1 month"));
                     $crrntdte = date("Y-m-d");
                     $SQLInsert = "SELECT SUM(prezzo) AS spesemensili FROM transazioni WHERE ID_user='$id' AND dataTransazione BETWEEN '$monthdata' AND '$crrntdte'";
                     $statement = $conn->prepare($SQLInsert);
@@ -144,13 +144,67 @@ include_once 'source/db_connect.php';
             </div>
         </div>
         <!--spese fatte durante l'anno-->
+        <br>
+        <br>
+            <div class="col-xs-6 col-md-3 " style="margin-top:2%">
+                <div class="tondeggia">
+                    <h4>spese annuali</h4>
+                    <?php
+                    try {
+                        $cyear = date("Y");
+                        $crrntdte = date("Y-m-d");
+                        $SQLInsert = "SELECT SUM(prezzo) AS speseannuali FROM transazioni WHERE ID_user='$id' AND (YEAR(dataTransazione)='$cyear') ";
+                        $statement = $conn->prepare($SQLInsert);
+                        $statement->execute();
+                        if ($row = $statement->fetch()) {
+                            $prezzoannuale = $row['speseannuali'];
+                        }
+                    } catch (PDOException $e) {
+                        echo $e;
+                    }
+                    ?>
+                    <div class="easypiechart" id="easypiechart-red" data-percent="<?php echo $prezzoannuale; ?>">
+                        <span class="percent">
+                            <?php if ($prezzoannuale == "") {
+                                echo "0";
+                            } else {
+                                echo $prezzoannuale;
+                            } ?>
+                        </span>
+                    </div>
 
-
-
+                </div>
+            </div>
         <!--spese totali-->
+        <div class="col-xs-6 col-md-3" style="margin-top:2%">
+                <div class="tondeggia">
+                    <h4>spese totali</h4>
+                    <?php
+                    try {
+                        $SQLInsert = "SELECT SUM(prezzo) AS spesetotali FROM transazioni WHERE ID_user='$id' ";
+                        $statement = $conn->prepare($SQLInsert);
+                        $statement->execute();
+                        if ($row = $statement->fetch()) {
+                            $prezzototale = $row['spesetotali'];
+                        }
+                    } catch (PDOException $e) {
+                        echo $e;
+                    }
+                    ?>
+                    <div class="easypiechart" id="easypiechart-red" data-percent="<?php echo $prezzototale; ?>">
+                        <span class="percent">
+                            <?php if ($prezzototale == "") {
+                                echo "0";
+                            } else {
+                                echo $prezzototale;
+                            } ?>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
 
 
-        
         <script src="js/jquery-1.11.1.min.js"></script>
         <script src="js/chart.min.js"></script>
         <script src="js/chart-data.js"></script>

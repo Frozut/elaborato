@@ -2,10 +2,23 @@
 require_once 'source/db_connect.php';
 require_once 'source/session.php';
 
+$data1=$_POST['data1']??null;
+$data2=$_POST['data2']??null;
 $id = $_SESSION['id'];
-$SQLInsert = "SELECT * from transazioni where ID_user='$id'";
-$statement = $conn->prepare($SQLInsert);
-$statement->execute();
+
+
+if(empty($data1) && empty($data1)){
+    
+    $SQLInsert = "SELECT * from transazioni where ID_user='$id'";
+    $statement = $conn->prepare($SQLInsert);
+    $statement->execute();
+}else{
+    $SQLInsert = "SELECT * from transazioni where ID_user='$id' AND dataTransazione BETWEEN '$data1' AND '$data2'";
+    $statement = $conn->prepare($SQLInsert);
+    $statement->execute();
+}
+
+
 try {
     while ($row = $statement->fetch()) {
 ?>

@@ -1,8 +1,8 @@
 <div class="sidebar">
   <div class="logo_content">
     <div class="logo">
-      <i class='bx bxl-c-plus-plus'></i>
-      <div class="logo_name">Eleborato</div>
+      <i class='bx bxl-jquery'></i>
+      <div class="logo_name">DailyBank</div>
     </div>
     <i class='bx bx-menu' id="btn"></i>
   </div>
@@ -36,27 +36,22 @@
       <span class="tooltip">see transactions</span>
     </li>
     <li>
-      <a href="#">
-        <i class='bx bx-pie-chart-alt-2'></i>
-        <span class="links_name">Analytics</span>
+      <a href="trasferimenti_mese-mese.php">
+        <i class='bx bx-calendar'></i>
+        <span class="links_name">transactions from ... to</span>
       </a>
-      <span class="tooltip">Analytics</span>
+      <span class="tooltip">transactions from ... to</span>
     </li>
-    <li>
-      <a href="#">
-        <i class='bx bx-folder'></i>
-        <span class="links_name">File Manager</span>
-      </a>
-      <span class="tooltip">Files</span>
-    </li>
-    <li>
-      <a href="#">
-        <i class='bx bx-cog'></i>
-        <span class="links_name">Setting</span>
-      </a>
-      <span class="tooltip">Setting</span>
-    </li>
+
+
+
   </ul>
+
+
+
+
+
+
   <div class="profile_content">
     <div class="profile">
       <div class="profile_details">

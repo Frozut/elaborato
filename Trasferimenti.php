@@ -48,14 +48,14 @@ include_once 'source/session.php';
                     <div class="form-group">
                         <label>Destinatario</label>
                         <select name="Destinatario" id="destinatario" class="form-control" style="width:30%;" required>
-                        <?php include_once 'source/GETdestinatario.php' ?>
+                            <?php include_once 'source/GETdestinatario.php' ?>
                             <!-- Robo php per <option> -->
                         </select>
                         <!--<input type="text" name="Destinatario" id="destinatario" placeholder="Destinatario" class="form-control" style="width:30%;" required>-->
                     </div>
                     <div class="form-group">
                         <label>Data transazione</label>
-                        <input type="date" name="dataTransazione" class="form-control" style="width:30%;" required>
+                        <input type="date" name="dataTransazione" id="datefield" min='' max='' class="form-control" style="width:30%;" required>
                     </div>
 
                     <div id="creare">
@@ -90,6 +90,8 @@ include_once 'source/session.php';
         var a = document.getElementById("seleziona");
         const dest = document.getElementById('destinatario');
 
+
+
         function test() {
             if (a.value === "comprare") {
                 var div = document.createElement('div');
@@ -122,12 +124,47 @@ include_once 'source/session.php';
                     sel.remove();
                     dest.style.display = 'block';
                     dest.setAttribute('required', true);
-                    dest.setAttribute('name','Destinatario');
-                    
+                    dest.setAttribute('name', 'Destinatario');
+
                 }
             }
         }
 
+        function date() {
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+
+            today = yyyy + '-' + mm + '-' + dd;
+            document.getElementById("datefield").setAttribute("max", today);
+        }
+
+        function datamin() {
+            var datamese = new Date();
+            var dd = datamese.getDate();
+            var mm = datamese.getMonth();
+            var yyyy = datamese.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+            today = yyyy + '-' + mm + '-' + dd;
+            document.getElementById("datefield").setAttribute("min", today);
+
+        }
+
+
+        date();
+        datamin();
         a.onchange = test;
         test();
     </script>
