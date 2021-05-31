@@ -10,7 +10,8 @@
 
 <body style="background-color:#00b4d8;">
 
-      
+<h3 text-align="center">QUESTO SITO E' STATO CREATO SOLAMENTE PER UN PROGETTO SCOLASTICO, NON INSERIRE DATI REALI DELLA CARTA DI CREDITO </h3>
+
   <form class="form" action="Send_card.php" method="post">
     <div class="container-fluid grid">
       <div class="row pull-center">
@@ -48,10 +49,11 @@
           <input type="submit" class="btn" value="Submit" name="invio" >
         </div>
       </div>
+      
 
     </div>
   </form>
-
+  
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
   <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/card/1.3.1/js/card.min.js'></script>

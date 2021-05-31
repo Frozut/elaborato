@@ -9,11 +9,11 @@ $id = $_SESSION['id'];
 
 if(empty($data1) && empty($data1)){
     
-    $SQLInsert = "SELECT * from transazioni where ID_user='$id'";
+    $SQLInsert = "SELECT * from transazioni WHERE ID_user='$id' ORDER BY dataTransazione ASC";
     $statement = $conn->prepare($SQLInsert);
     $statement->execute();
 }else{
-    $SQLInsert = "SELECT * from transazioni where ID_user='$id' AND dataTransazione BETWEEN '$data1' AND '$data2'";
+    $SQLInsert = "SELECT * from transazioni where ID_user='$id' AND dataTransazione BETWEEN '$data1' AND '$data2' ORDER BY dataTransazione ASC";
     $statement = $conn->prepare($SQLInsert);
     $statement->execute();
 }

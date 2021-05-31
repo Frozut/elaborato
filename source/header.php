@@ -1,7 +1,7 @@
 <div class="sidebar">
   <div class="logo_content">
     <div class="logo">
-      <i class='bx bxl-jquery'></i>
+    <i class='bx bxs-bank'></i>
       <div class="logo_name">DailyBank</div>
     </div>
     <i class='bx bx-menu' id="btn"></i>

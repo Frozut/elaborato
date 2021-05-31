@@ -76,6 +76,7 @@ include_once 'source/session.php';
 
             </div>
             <div class="tondeggia"><?php include_once 'source/GETdatipersonali.php' ?>
+            <?php echo "<h2> soldi che hai sulla carta: " . $_SESSION['conto']."&#x20AC</h2>" ?>
                 <div style="display: inline-block">
                     <input type="submit" class="btn btn-primary" style="background-color:#f1a566" id="cambia" name="password_change" value="cambia password">
                 </div>

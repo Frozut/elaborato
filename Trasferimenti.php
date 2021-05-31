@@ -28,7 +28,7 @@ include_once 'source/session.php';
         <div class="panel-body">
             <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4" style="width:508px">
 
-                <form class="tondeggia" role="form" method="post" action="sendTransazioni.php">
+                <form class="tondeggia" role="form" method="post" name="invia">
                     <div class="form-group">
                         <label>Oggetto</label>
                         <input type="text" class="form-control" name="Ogetto" placeholder="ogetto" style="width:30%;" required>
@@ -64,7 +64,7 @@ include_once 'source/session.php';
 
 
                     <div class="form-group has-success">
-                        <input type="submit" class="btn btn-primary" style="background-color:#f1a566" name="prova" value="Add">
+                        <input type="submit" id="controlla" class="btn btn-primary" style="background-color:#f1a566" name="prova" value="Add">
                     </div>
                 </form>
 
@@ -89,7 +89,8 @@ include_once 'source/session.php';
     <script>
         var a = document.getElementById("seleziona");
         const dest = document.getElementById('destinatario');
-
+        var prezzo = document.getElementById("prezzo");
+        var pulsante=document.getElementById("controlla");
 
 
         function test() {
@@ -161,10 +162,21 @@ include_once 'source/session.php';
             document.getElementById("datefield").setAttribute("min", today);
 
         }
+        function controlloprezzo(){
+            if(prezzo.value>8000){
+                alert("il valore di un oggetto non può essere superiore a 80000euro");
+            }
+            else{
+                document.invia.action= "sendTransazioni.php";
+                document.invia.submit();
+
+            }
+        }
 
 
         date();
         datamin();
+        pulsante.onclick= controlloprezzo;
         a.onchange = test;
         test();
     </script>
