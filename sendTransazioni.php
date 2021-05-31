@@ -30,7 +30,7 @@ if (isset($_POST['prova'])) {
     if ($_SESSION['conto'] - $prezzo < 0) {
       alert();
     } else {
-      $$contoeseguito = $conto - $prezzo;
+      $contoeseguito = $conto - $prezzo;
     }
 
     if ($seleziona == 'trasferimento') {
@@ -62,7 +62,7 @@ if (isset($_POST['prova'])) {
 
 
     //AGGIORNARE IL SALDO DI UN UTENTE
-    $SQLInsert2 = "UPDATE soldi SET conto=$contoeseguito WHERE user_id=$id";
+    $SQLInsert2 = "UPDATE soldi SET conto=$contoeseguito WHERE user_id='$id'";
     $statement = $conn->prepare($SQLInsert2);
     $statement->execute();
     $_SESSION['conto'] = $_SESSION['conto'] - $prezzo;
@@ -77,7 +77,7 @@ if (isset($_POST['prova'])) {
       $conto1 = (int)$conto1;
       $prezzo = (int)$prezzo;
       $aggiungi = $conto1 + $prezzo;
-      $SQLInsert3 = "UPDATE soldi SET conto=$aggiungi WHERE user_id=$otherid";
+      $SQLInsert3 = "UPDATE soldi SET conto=$aggiungi WHERE user_id='$otherid'";
       $statement = $conn->prepare($SQLInsert3);
       $statement->execute();
     }
